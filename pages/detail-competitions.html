@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Soccer</title>
+    <link rel="stylesheet" href="../css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#0d47a1" />
+    <link rel="apple-touch-icon" href="/img/logo.png" />
+</head>
+
+<body>
+    <!-- Navigasi -->
+
+    <nav class="blue darken-4" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo" id="logo-container">One Soccer</a>
+            <a href="../index.html#competitions" class="sidenav-trigger" data-target="nav-mobile">
+                <i class="material-icons">arrow_back</i>
+            </a>
+            <ul class="topnav right hide-on-med-and-down"></ul>
+            <ul class="sidenav" id="nav-mobile"></ul>
+        </div>
+    </nav>
+
+    <!-- Akhir navigasi -->
+    
+    <div class="container" id="body-content"></div>
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red" id="save">
+            <i class="large material-icons">save</i>
+        </a>
+    </div>
+
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red" id="delete">
+            <i class="large material-icons">delete</i>
+        </a>
+    </div>
+
+    <script type="text/javascript" src="https://unpkg.com/snarkdown@1.0.2/dist/snarkdown.umd.js"></script>
+    <script src="../js/materialize.min.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/competitions.js"></script>
+    <script src="../js/idb.js"></script>
+    <script src="../js/db.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const isFromSaved = urlParams.get("saved");
+            const btnSave = document.getElementById("save");
+            const btnDelete = document.getElementById("delete");
+
+            if(isFromSaved){
+                btnSave.style.display = 'none';
+                getSavedCompetitionsById();
+            }else{
+                getSavedCompetitions();
+                var item = getCompetitionsById();
+                btnDelete.style.display = 'none';
+            }
+
+            btnSave.onclick = ()=>{
+                console.log("is Clicked");
+                item.then((match)=>{
+                    saveForLater({
+                        'id':match.competition.id,
+                        'name':match.competition.name,
+                        'competition':match.competition,
+                        'season':match.season,
+                        'standings':match.standings
+                    });
+                });
+            }
+
+            btnDelete.onclick = () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const idParam = urlParams.get("id");
+                deleteCompetition(idParam);
+                window.location.href = "../index.html#saved";
+            }
+        });
+    </script>
+</body>
+
+</html>
