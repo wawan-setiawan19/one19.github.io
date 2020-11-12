@@ -33,8 +33,6 @@ function getMatches(){
     if(date<10) date = `0${date}`;
     if(month<10) month = `0${month}`;
 
-    console.log(date);
-
     if('caches' in window){
         caches.match(`${baseUrl}matches/?dateTo=${year}-${month}-${date}&dateFrom=${year}-${month}-${date}`).then((response)=>{
             if(response){
