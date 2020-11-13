@@ -1,5 +1,5 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js');
-    
+
 if (workbox)
     console.log(`Workbox berhasil dimuat`);
 else
@@ -47,5 +47,7 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
     new RegExp("https://api.football-data.org/v2/"),
-    workbox.strategies.staleWhileRevalidate()
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'data-api',
+    })
 );
