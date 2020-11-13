@@ -2,7 +2,7 @@
     "name":"One Soccer",
     "short_name":"One Soccer",
     "description":"",
-    "start_url":"/index.html",
+    "start_url":"./index.html",
     "display":"standalone",
     "background_color":"#0d47a1",
     "theme_color":"#0d47a1",

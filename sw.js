@@ -44,3 +44,8 @@ workbox.routing.registerRoute(
         cacheName: 'google-fonts-stylesheets',
     })
 );
+
+workbox.routing.registerRoute(
+    new RegExp("https://api.football-data.org/v2/"),
+    workbox.strategies.staleWhileRevalidate()
+);
