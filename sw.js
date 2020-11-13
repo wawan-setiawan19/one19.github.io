@@ -18,7 +18,7 @@ workbox.precaching.precacheAndRoute([
     {url:'/js/idb.js', revision:'2'},
     {url:'/js/main.js', revision:'2'},
     {url:'/js/matches.js', revision:'2'},
-    {url:'/materialize.min.js', revision:'2'},
+    {url:'/js/materialize.min.js', revision:'2'},
     {url:'/js/nav.js', revision:'2'},
     {url:'/pages/competitions/html', revision:'2'},
     {url:'/pages/detail-competitions.html', revision:'2'},
@@ -28,13 +28,41 @@ workbox.precaching.precacheAndRoute([
     {url:'/.eslintrc.json', revision:'2'},
     {url:'/manifest.json', revision:'2'},
     {url:'/push.js', revision:'2'},
-    {url:'/sw.js', revision:'2'}
+    {url:'/sw.js', revision:'3'}
 ]);
 
 workbox.routing.registerRoute(
     new RegExp('/pages/'),
     workbox.strategies.staleWhileRevalidate({
         cacheName: 'pages'
+    })
+);
+
+workbox.routing.registerRoute(
+    new RegExp('/js/'),
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'js'
+    })
+);
+
+workbox.routing.registerRoute(
+    new RegExp('/img/'),
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'img'
+    })
+);
+
+workbox.routing.registerRoute(
+    new RegExp('/components/'),
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'components'
+    })
+);
+
+workbox.routing.registerRoute(
+    new RegExp('/css/'),
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: 'css'
     })
 );
 
