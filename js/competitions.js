@@ -146,7 +146,7 @@ function getSavedCompetitions(){
         competitions.forEach(data => {
             savedContent += `
                 <div class="col s12">
-                    <a href="./pages/detail-competitions.html?id=${data.id}&saved=true">
+                    <a href="./detail-competitions.html?id=${data.id}&saved=true">
                         <div class="card">
                             <div class="card-content">
                                 <h5>${data.name}</h5>
