@@ -31,6 +31,7 @@ function showCompetitions(data){
                 `;
             }
     });
+    console.log(window.location);
     document.getElementById("competitions").innerHTML = articlesHTML;
 }
 
