@@ -16,7 +16,7 @@ function showCompetitions(data){
                 <div class="col s12 m6 l4">
                     <div class="card">
                         <div class="card-image">
-                            <a href="./detail-competitions.html?id=${article.id}">
+                            <a href="../detail-competitions.html?id=${article.id}">
                                 <img class="emblem responsive-img" src="${emblem}" alt="logo-competitions">
                             </a>
                         </div>
