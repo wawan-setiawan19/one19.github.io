@@ -13,7 +13,7 @@ workbox.precaching.precacheAndRoute([
     {url:'/img/Fifa.svg', revision:'2'},
     {url:'/img/logo.png', revision:'2'},
     {url:'/js/api.js', revision:'2'},
-    {url:'/js/competitions.js', revision:'4'},
+    {url:'/js/competitions.js', revision:'5'},
     {url:'/js/db.js', revision:'2'},
     {url:'/js/idb.js', revision:'2'},
     {url:'/js/main.js', revision:'2'},
@@ -28,7 +28,7 @@ workbox.precaching.precacheAndRoute([
     {url:'/detail-competitions.html', revision:'2'},
     {url:'/manifest.json', revision:'2'},
     {url:'/push.js', revision:'2'},
-    {url:'/sw.js', revision:'5'}
+    {url:'/sw.js', revision:'6'}
 ]);
 
 workbox.routing.registerRoute(
