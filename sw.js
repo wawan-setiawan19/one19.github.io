@@ -21,15 +21,17 @@ workbox.precaching.precacheAndRoute([
     {url:'/js/materialize.min.js', revision:'2'},
     {url:'/js/nav.js', revision:'2'},
     {url:'/pages/competitions/html', revision:'2'},
-    {url:'/pages/last-matches.html', revision:'2'},
+    {url:'/pages/last-matches.html', revision:'3'},
     {url:'/pages/matches.html', revision:'2'},
     {url:'/pages/saved.html', revision:'2'},
     {url:'/.eslintrc.json', revision:'2'},
-    {url:'/detail-competitions.html', revision:'2'},
+    {url:'/detail-competitions.html', revision:'3'},
     {url:'/manifest.json', revision:'2'},
     {url:'/push.js', revision:'2'},
-    {url:'/sw.js', revision:'10'}
-]);
+    {url:'/sw.js', revision:'11'}
+],{
+    ignoreUrlParametersMatching: [/.*/]
+});
 
 workbox.routing.registerRoute(
     new RegExp('/pages/'),
